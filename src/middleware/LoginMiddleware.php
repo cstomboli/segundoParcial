@@ -19,15 +19,16 @@ class LoginMiddleware
     public function __invoke(Request $request, RequestHandler $handler): Response
     {
         $body = $request->getParsedBody(); 
-        
-     /*   $usuario=User::where('email', $body['email'])->get();
-        $usuario = json_decode(User::whereRaw('email = ? AND clave = ?',array($email,$password))
+        $email= $body['email'];
+        $password=$body['password'];
+        //$usuario=User::where('email', $body['email'])->get();
+       /* $usuario = json_decode(User::whereRaw('email = ? AND clave = ?',array($email,$password))
                                 ->join('tipos','Users.tipo_id','=','tipos.Id')
                                 ->get());   */
 
         $usuario = json_decode(User::whereRaw('email = ? AND password = ?',array($headers['email'],$headers['password']))->get());
 
-        
+        echo("este es".$usuario[0]->email);
         if($usuario != '[]')
         {
             //echo("if".$legajo);

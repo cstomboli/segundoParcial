@@ -10,8 +10,8 @@ class MateriaController
 {
     function getAll(Request $request, Response $response, $args){
        
-        $rta = json_encode(Usuario::all());
-        $response->getBody()->write($rta);//("Hello Tita");
+        $rta = json_encode(Materia::all());
+        $response->getBody()->write($rta);
         return $response;    
     }
 
