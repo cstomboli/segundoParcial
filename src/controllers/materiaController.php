@@ -25,8 +25,7 @@ class MateriaController
             $usuario->materia=$body['materia'];
             $usuario->cuatrimestre=$body['cuatrimestre'];
             $usuario->vacantes=$body['vacantes'];
-            $usuario->profesor_id=$body['profesor'];
-            
+            $usuario->profesor_id=$body['profesor'];          
 
             $response->getBody()->write(json_encode($usuario->save()));
         }
@@ -55,6 +54,20 @@ class MateriaController
                 
         }
         $response->getBody()->write(JWT::encode($payload,$key));
+        return $response;
+    }
+
+    function mostrar(Request $request, Response $response, $args)
+    {
+        $body = $request->getParsedBody();
+        $usuarioEmail=User::where('email', $body['email'])->get();
+        $usuarioClave=User::where('email', $body['email'])->get();
+
+        if($usuarioEmail == $usuarioClave)
+        {   
+                                     
+        }
+        //$response->getBody()->write(JWT::encode($payload,$key));
         return $response;
     }
 }

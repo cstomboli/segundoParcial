@@ -15,7 +15,7 @@ return function(App $app){
     $app->add(new LoginMiddleware());
     //$app->add(new MascotaMiddleware());
     $app->add(new RegistroMiddleware());
-   // $app->add(new MateriasMiddleware());
+    $app->add(new MateriasMiddleware());
 
     // $app->add(BeforeMiddleware::class);
 };

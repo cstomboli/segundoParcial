@@ -17,7 +17,7 @@ return function($app)
     {
         $group->post('/', MateriaController::class.':add')->add(MateriasMiddleware::class); 
         $group->get('/', MateriaController::class.':getAll');
-        $group->get('/{id}', MateriaController::class.':add');
+        $group->get('/{id}', MateriaController::class.':mostrar');
         $group->put('/{id}', MateriaController::class.':add');
         $group->put('/{id}/{profesor}', MateriaController::class.':add');
     });
